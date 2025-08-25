@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mr.Arslan Boosting Service's</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- ✅ Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root { --bg1: #0ea5e9; --bg2: #0f172a; --glass: rgba(255,255,255,.08); }
+    html, body { height: 100%; }
+    body { font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'; }
+    /* Soft animated gradient background */
+    .hero-bg {
+      background: radial-gradient(1200px 600px at 10% 0%, rgba(14,165,233,.25), transparent 60%),
+                  radial-gradient(1000px 500px at 90% 10%, rgba(99,102,241,.25), transparent 60%),
+                  radial-gradient(900px 500px at 30% 90%, rgba(16,185,129,.25), transparent 60%),
+                  linear-gradient(120deg, #0b1220 0%, #0b1220 60%, #0b1220 100%);
+    }
+    .card { backdrop-filter: blur(8px); background: var(--glass); border: 1px solid rgba(255,255,255,.08); }
+    .logo-circle { box-shadow: inset 0 0 0 1px rgba(255,255,255,.15); }
+    .fade-enter { animation: fade .25s ease-out both; }
+    @keyframes fade { from { opacity:.0; transform: translateY(4px);} to { opacity:1; transform: translateY(0);} }
+    .modal-backdrop { background: rgba(2,6,23,.75); backdrop-filter: blur(6px); }
+  </style>
+</head>
+<body class="hero-bg text-slate-100">
+  <!-- Header -->
+  <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="logo-circle w-10 h-10 rounded-2xl grid place-items-center bg-white/5">
+          <span class="text-xl">🚀</span>
+        </div>
+        <h1 class="text-xl sm:text-2xl font-bold">Mr.Arslan Boosting Service's</h1>
+      </div>
+      <nav class="hidden sm:flex items-center gap-4 text-sm">
+        <a href="#platforms" class="hover:underline">Platforms</a>
+        <button onclick="openContact()" class="hover:underline">Contact</button>
+      </nav>
+    </div>
+  </header>  <!-- Hero -->  <section class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
+    <div class="grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">Grow your social presence fast</h2>
+        <p class="mt-3 text-slate-300">Premium social media boosting for TikTok, Instagram, Facebook, YouTube, Snapchat, Telegram & WhatsApp. Tap a platform, choose a service, then hit <span class="font-semibold">Buy Now</span> to chat on WhatsApp.</p>
+        <div class="mt-5 flex gap-3">
+          <a href="#platforms" class="px-5 py-3 rounded-2xl bg-sky-500 hover:bg-sky-400 font-semibold">View Platforms</a>
+          <button onclick="openContact()" class="px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 font-semibold">Contact Now</button>
+        </div>
+      </div>
+      <div class="card rounded-3xl p-6">
+        <div class="grid grid-cols-4 gap-4 text-3xl">
+          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-tiktok"></i></div>
+          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-telegram"></i></div>
+          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-youtube"></i></div>
+          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-facebook"></i></div>
+          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-instagram"></i></div>
+          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-snapchat"></i></div>
+          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square">✨</div>
+        </div>
+        <p class="text-xs text-slate-400 mt-3">Logos for reference only. We provide promotional/boosting services.</p>
+      </div>
+    </div>
+  </section>  <!-- Platforms Grid -->  <section id="platforms" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <h3 class="text-2xl font-bold mb-4">Select a Platform</h3><div id="platformGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+
+<!-- Etc / Extra Services special card -->
+<div class="mt-6">
+  <div class="card rounded-3xl p-5">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl grid place-items-center bg-white/10 text-2xl">✨</div>
+        <div>
+          <h4 class="font-semibold text-lg">Extra Services</h4>
+          <p class="text-slate-300 text-sm">Fake Numbers (All Types), Canva Pro / CapCut Pro, Netflix Screen, Sim Info</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="openContact()" class="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 font-semibold">Contact Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </section>  <!-- Platform Drawer / Modal -->  <div id="modal" class="hidden fixed inset-0 modal-backdrop z-50">
+    <div class="min-h-full w-full flex items-end sm:items-center justify-center p-3">
+      <div class="card bg-slate-900/70 rounded-3xl w-full max-w-2xl p-5 fade-enter">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h4 id="modalTitle" class="text-xl font-bold">Platform</h4>
+            <p id="modalSubtitle" class="text-slate-300 text-sm">Choose a service below.</p>
+          </div>
+          <button onclick="closeModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20">✕</button>
+        </div>
+        <div id="servicesList" class="mt-4 grid gap-3"></div>
+      </div>
+    </div>
+  </div>  <!-- Contact Overlay (for ETC and header Contact) -->  <div id="contact" class="hidden fixed inset-0 z-50 modal-backdrop">
+    <div class="min-h-full w-full flex items-center justify-center p-4">
+      <div class="card bg-slate-900/70 rounded-3xl max-w-lg w-full p-6 fade-enter text-center">
+        <div class="text-6xl">💬</div>
+        <h4 class="text-2xl font-bold mt-2">Contact Now</h4>
+        <p class="text-slate-300 mt-1">Tap the button below to start a WhatsApp chat instantly.</p>
+        <a href="https://wa.link/e6eour" target="_blank" rel="noopener" class="mt-4 inline-block px-6 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 font-semibold">Open WhatsApp</a>
+        <button onclick="closeContact()" class="mt-3 block w-full px-6 py-3 rounded-2xl bg-white/10 hover:bg-white/20">Close</button>
+      </div>
+    </div>
+  </div>  <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center text-slate-400 text-sm">
+    © <span id="year"></span> Mr.Arslan Boosting Service's — All rights reserved.
+  </footer>  <script>
+    const WHATSAPP_LINK = 'https://wa.link/e6eour'; // your provided link
+
+    const platforms = [
+      {
+        key: 'tiktok',
+        icon: '<i class="fa-brands fa-tiktok"></i>',
+        name: 'TikTok',
+        services: ['Likes', 'Followers', 'Views', 'UK Accounts']
+      },
+      {
+        key: 'instagram',
+        icon: '<i class="fa-brands fa-instagram"></i>',
+        name: 'Instagram',
+        services: ['Likes', 'Followers', 'Reels Views']
+      },
+      {
+        key: 'facebook',
+        icon: '<i class="fa-brands fa-facebook"></i>',
+        name: 'Facebook',
+        services: ['Likes', 'Followers', 'Video Views']
+      },
+      {
+        key: 'youtube',
+        icon: '<i class="fa-brands fa-youtube"></i>',
+        name: 'YouTube',
+        services: ['Subs', 'Views', 'Watch Time']
+      },
+      {
+        key: 'snapchat',
+        icon: '<i class="fa-brands fa-snapchat"></i>',
+        name: 'Snapchat',
+        services: ['Followers', 'Story Views']
+      },
+      {
+        key: 'telegram',
+        icon: '<i class="fa-brands fa-telegram"></i>',
+        name: 'Telegram',
+        services: ['Members']
+      },
+      {
+        key: 'whatsapp',
+        icon: '<i class="fa-brands fa-whatsapp"></i>',
+        name: 'WhatsApp',
+        services: ['Channel Members', 'Reacts', 'Voting']
+      },
+      {
+        key: 'fake numbes',
+        icon: '<i class="fa-solid fa-phone"></i>',
+        name: 'Fake Numbes',
+        services: ['All type of Fake Numbers', 'Cheap Numbers']
+      },
+      {
+        key: 'canva pro',
+        icon: '🌐',
+        name: 'Canva Pro',
+        services: ['For 30 Days', 'For 1 year', 'For Life Time']
+      },
+      {
+        key: 'capcut pro',
+        icon: '🎞️',
+        name: 'CapCut Pro',
+        services: ['For 30 days']
+      },
+      {
+        key: 'netflix screen',
+        icon: '<i class="fa-brands fa-netflix"></i>',
+        name: 'Netflix Screen',
+        services: ['Private Screen', 'Private Screen With Download Button']
+      },
+    ];
+
+    const grid = document.getElementById('platformGrid');
+
+    function renderPlatforms(){
+      platforms.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'card rounded-3xl p-5 hover:bg-white/10 transition cursor-pointer';
+        card.innerHTML = `
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl grid place-items-center bg-white/10 text-2xl">${p.icon}</div>
+            <div>
+              <h4 class="font-semibold text-lg">${p.name}</h4>
+              <p class="text-slate-300 text-sm">Tap to view services</p>
+            </div>
+          </div>`;
+        card.addEventListener('click', () => openPlatform(p));
+        grid.appendChild(card);
+      });
+
+      // ETC tile that opens Contact page
+      const etc = document.createElement('div');
+      etc.className = 'card rounded-3xl p-5 hover:bg-white/10 transition cursor-pointer';
+      etc.innerHTML = `
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center bg-white/10 text-2xl">⋯</div>
+          <div>
+            <h4 class="font-semibold text-lg">Etc</h4>
+            <p class="text-slate-300 text-sm">More? Tap to Contact Now</p>
+          </div>
+        </div>`;
+      etc.addEventListener('click', openContact);
+      grid.appendChild(etc);
+    }
+
+    function openPlatform(p){
+      document.getElementById('modalTitle').textContent = p.name;
+      document.getElementById('modalSubtitle').textContent = 'Choose a service and then tap Buy Now';
+      const list = document.getElementById('servicesList');
+      list.innerHTML = '';
+      p.services.forEach(svc => {
+        const row = document.createElement('div');
+        row.className = 'rounded-2xl bg-white/5 p-4 flex items-center justify-between';
+        row.innerHTML = `
+          <div>
+            <div class="font-semibold">${svc}</div>
+            <div class="text-xs text-slate-400">${p.name} • ${svc}</div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 font-semibold">Buy Now</button>
+          </div>`;
+        row.querySelector('button').addEventListener('click', () => buy(p.name, svc));
+        list.appendChild(row);
+      });
+      openModal();
+    }
+
+    function buy(platform, service){
+      // Prefer the exact wa.link provided. We'll also include a fallback text copy for clarity.
+      const msg = encodeURIComponent(`Hello, I want ${platform} ${service}`);
+      // Try opening wa.link (primary)
+      window.open(`${WHATSAPP_LINK}?text=${msg}`, '_blank');
+    }
+
+    function openModal(){
+      document.getElementById('modal').classList.remove('hidden');
+    }
+    function closeModal(){
+      document.getElementById('modal').classList.add('hidden');
+    }
+
+    function openContact(){
+      document.getElementById('contact').classList.remove('hidden');
+    }
+    function closeContact(){
+      document.getElementById('contact').classList.add('hidden');
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    renderPlatforms();
+  </script></body>
+</html>
