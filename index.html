@@ -3,193 +3,544 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mr.Arslan Boosting Service's</title>
+  <title>Mr.Arslan Boosting Service's - Professional Social Media Growth</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- ✅ Font Awesome CDN -->
+  <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
   <style>
-    :root { --bg1: #0ea5e9; --bg2: #0f172a; --glass: rgba(255,255,255,.08); }
-    html, body { height: 100%; }
-    body { font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji'; }
-    /* Soft animated gradient background */
-    .hero-bg {
-      background: radial-gradient(1200px 600px at 10% 0%, rgba(14,165,233,.25), transparent 60%),
-                  radial-gradient(1000px 500px at 90% 10%, rgba(99,102,241,.25), transparent 60%),
-                  radial-gradient(900px 500px at 30% 90%, rgba(16,185,129,.25), transparent 60%),
-                  linear-gradient(120deg, #0b1220 0%, #0b1220 60%, #0b1220 100%);
+    :root {
+      --primary: #2563eb;
+      --secondary: #0ea5e9;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --success: #10b981;
+      --glass: rgba(255, 255, 255, 0.08);
+      --glass-dark: rgba(0, 0, 0, 0.2);
     }
-    .card { backdrop-filter: blur(8px); background: var(--glass); border: 1px solid rgba(255,255,255,.08); }
-    .logo-circle { box-shadow: inset 0 0 0 1px rgba(255,255,255,.15); }
-    .fade-enter { animation: fade .25s ease-out both; }
-    @keyframes fade { from { opacity:.0; transform: translateY(4px);} to { opacity:1; transform: translateY(0);} }
-    .modal-backdrop { background: rgba(2,6,23,.75); backdrop-filter: blur(6px); }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #0b1220 0%, #1e293b 100%);
+      color: #f1f5f9;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.5);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+    
+    /* Animated Background */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.5;
+    }
+    
+    .animated-bg:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.2) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(14, 165, 233, 0.2) 0%, transparent 25%),
+        radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.2) 0%, transparent 25%);
+      background-size: 100% 100%;
+      z-index: -1;
+    }
+    
+    /* Glassmorphism Effect */
+    .glass-card {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    }
+    
+    /* Logo Animation */
+    .logo-circle {
+      box-shadow: 
+        inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+        0 0 30px rgba(37, 99, 235, 0.5);
+      animation: pulse 3s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 rgba(37, 99, 235, 0.5); }
+      50% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.8); }
+      100% { box-shadow: 0 0 0 rgba(37, 99, 235, 0.5); }
+    }
+    
+    /* Button Styles */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Platform Icons Grid */
+    .platform-icon {
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .platform-icon:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Join Group Button */
+    .join-group-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      animation: pulse-green 2s infinite;
+    }
+    
+    .join-group-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+    }
+    
+    @keyframes pulse-green {
+      0% { box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7); }
+      100% { box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4); }
+    }
+    
+    /* Modal Styles */
+    .modal-backdrop {
+      background: rgba(2, 6, 23, 0.85);
+      backdrop-filter: blur(8px);
+    }
+    
+    /* Footer Styles */
+    footer {
+      background: rgba(15, 23, 42, 0.7);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .join-group-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .platform-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+    }
   </style>
 </head>
-<body class="hero-bg text-slate-100">
+<body class="relative">
+  <!-- Animated Background -->
+  <div class="animated-bg"></div>
+  
+  <!-- Join Group Button -->
+  <a href="https://chat.whatsapp.com/FbDEIvqCWKvJTxdLtpbZVA?mode=ems_copy_c" target="_blank" class="join-group-btn">
+    <i class="fab fa-whatsapp"></i>
+    <span>Join Group</span>
+  </a>
+  
   <!-- Header -->
-  <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+  <header class="glass-card sticky top-0 z-40 rounded-none md:rounded-b-2xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-5 mt-4 md:mx-4 lg:mt-6 lg:max-w-7xl">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="logo-circle w-10 h-10 rounded-2xl grid place-items-center bg-white/5">
+        <div class="logo-circle w-10 h-10 rounded-2xl grid place-items-center bg-gradient-to-br from-blue-500 to-blue-700">
           <span class="text-xl">🚀</span>
         </div>
-        <h1 class="text-xl sm:text-2xl font-bold">Mr.Arslan Boosting Service's</h1>
+        <h1 class="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">Mr.Arslan Boosting Service's</h1>
       </div>
-      <nav class="hidden sm:flex items-center gap-4 text-sm">
-        <a href="#platforms" class="hover:underline">Platforms</a>
-        <button onclick="openContact()" class="hover:underline">Contact</button>
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="#platforms" class="hover:text-blue-300 transition-colors">Platforms</a>
+        <a href="#services" class="hover:text-blue-300 transition-colors">Services</a>
+        <button onclick="openContact()" class="hover:text-blue-300 transition-colors">Contact</button>
       </nav>
+      <button class="sm:hidden text-xl" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
-  </header>  <!-- Hero -->  <section class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
-    <div class="grid md:grid-cols-2 gap-6 items-center">
-      <div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">Grow your social presence fast</h2>
-        <p class="mt-3 text-slate-300">Premium social media boosting for TikTok, Instagram, Facebook, YouTube, Snapchat, Telegram & WhatsApp. Tap a platform, choose a service, then hit <span class="font-semibold">Buy Now</span> to chat on WhatsApp.</p>
-        <div class="mt-5 flex gap-3">
-          <a href="#platforms" class="px-5 py-3 rounded-2xl bg-sky-500 hover:bg-sky-400 font-semibold">View Platforms</a>
-          <button onclick="openContact()" class="px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 font-semibold">Contact Now</button>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden absolute top-full left-0 right-0 glass-card mt-2 p-4 rounded-b-2xl">
+      <div class="flex flex-col gap-3">
+        <a href="#platforms" class="py-2 px-4 rounded-lg hover:bg-white/5">Platforms</a>
+        <a href="#services" class="py-2 px-4 rounded-lg hover:bg-white/5">Services</a>
+        <button onclick="openContact()" class="py-2 px-4 rounded-lg hover:bg-white/5 text-left">Contact</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-24">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div data-aos="fade-right" data-aos-duration="800">
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">Boost Your Social Media Presence</h2>
+        <p class="mt-5 text-lg text-slate-300">Premium social media boosting services for TikTok, Instagram, Facebook, YouTube, Snapchat, Telegram & WhatsApp. Enhance your online presence with our reliable and fast services.</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="#platforms" class="btn-primary px-6 py-3.5 rounded-xl font-semibold">Explore Services</a>
+          <button onclick="openContact()" class="btn-secondary px-6 py-3.5 rounded-xl font-semibold">Contact Us</button>
+        </div>
+        
+        <!-- Stats -->
+        <div class="mt-10 grid grid-cols-3 gap-6">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-blue-400">10K+</div>
+            <div class="text-sm text-slate-400">Clients Served</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-cyan-400">100K+</div>
+            <div class="text-sm text-slate-400">Orders Completed</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-green-400">24/7</div>
+            <div class="text-sm text-slate-400">Support</div>
+          </div>
         </div>
       </div>
-      <div class="card rounded-3xl p-6">
+      
+      <div data-aos="fade-left" data-aos-duration="800" class="glass-card rounded-3xl p-6">
         <div class="grid grid-cols-4 gap-4 text-3xl">
-          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-tiktok"></i></div>
-          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-whatsapp"></i></div>
-          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-telegram"></i></div>
-          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-youtube"></i></div>
-          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-facebook"></i></div>
-          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-instagram"></i></div>
-          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-snapchat"></i></div>
-          <div class="bg-white/10 rounded-2xl grid place-items-center aspect-square">✨</div>
+          <div class="platform-icon rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-tiktok text-rose-500"></i></div>
+          <div class="platform-icon rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-whatsapp text-green-500"></i></div>
+          <div class="platform-icon rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-telegram text-blue-400"></i></div>
+          <div class="platform-icon rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-youtube text-red-500"></i></div>
+          <div class="platform-icon rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-facebook text-blue-600"></i></div>
+          <div class="platform-icon rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-instagram text-purple-500"></i></div>
+          <div class="platform-icon rounded-2xl grid place-items-center aspect-square"><i class="fa-brands fa-snapchat text-yellow-400"></i></div>
+          <div class="platform-icon rounded-2xl grid place-items-center aspect-square bg-gradient-to-br from-blue-500 to-cyan-500">✨</div>
         </div>
-        <p class="text-xs text-slate-400 mt-3">Logos for reference only. We provide promotional/boosting services.</p>
+        <p class="text-xs text-slate-400 mt-4 text-center">We provide premium boosting services for all major social platforms</p>
       </div>
     </div>
-  </section>  <!-- Platforms Grid -->  <section id="platforms" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-    <h3 class="text-2xl font-bold mb-4">Select a Platform</h3><div id="platformGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+  </section>   <!-- Platforms Section -->
+  <section id="platforms" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h3 class="text-3xl font-bold mb-4">Our Services</h3>
+      <p class="text-slate-400 max-w-2xl mx-auto">Select a platform to view our boosting services. We offer high-quality, reliable growth for all your social media needs.</p>
+    </div>
+    
+    <div id="platformGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
 
-<!-- Etc / Extra Services special card -->
-<div class="mt-6">
-  <div class="card rounded-3xl p-5">
-    <div class="flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-11 h-11 rounded-2xl grid place-items-center bg-white/10 text-2xl">✨</div>
-        <div>
-          <h4 class="font-semibold text-lg">Extra Services</h4>
-          <p class="text-slate-300 text-sm">Fake Numbers (All Types), Canva Pro / CapCut Pro, Netflix Screen, Sim Info</p>
+    <!-- Extra Services Card -->
+    <div class="mt-16" data-aos="fade-up">
+      <div class="glass-card rounded-3xl p-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-2xl grid place-items-center bg-gradient-to-br from-purple-500 to-pink-500 text-2xl">✨</div>
+            <div>
+              <h4 class="font-semibold text-xl">Premium Services</h4>
+              <p class="text-slate-300">Send Your message for more details</p>
+            </div>
+          </div>
+          <button onclick="openContact()" class="btn-primary px-6 py-3 rounded-xl font-semibold whitespace-nowrap">Contact Now</button>
         </div>
       </div>
-      <div class="flex items-center gap-3">
-        <button onclick="openContact()" class="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 font-semibold">Contact Now</button>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h3 class="text-3xl font-bold mb-4">Client Testimonials</h3>
+      <p class="text-slate-400 max-w-2xl mx-auto">See what our clients have to say about our services</p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="glass-card rounded-3xl p-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-blue-500"></div>
+          <div>
+            <h4 class="font-semibold">Ali Ahmed</h4>
+            <p class="text-sm text-slate-400">Instagram Growth</p>
+          </div>
+        </div>
+        <p class="text-slate-300">"Got 5k followers in just a few hours. Service was fast and reliable. Highly recommend!"</p>
+        <div class="flex mt-4">
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+        </div>
+      </div>
+      
+      <div class="glass-card rounded-3xl p-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-green-500"></div>
+          <div>
+            <h4 class="font-semibold">Sara Khan</h4>
+            <p class="text-sm text-slate-400">TikTok Views</p>
+          </div>
+        </div>
+        <p class="text-slate-300">"My videos started getting thousands of views after using their service. Amazing results!"</p>
+        <div class="flex mt-4">
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+        </div>
+      </div>
+      
+      <div class="glass-card rounded-3xl p-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-purple-500"></div>
+          <div>
+            <h4 class="font-semibold">Bilal Raza</h4>
+            <p class="text-sm text-slate-400">YouTube Subscribers</p>
+          </div>
+        </div>
+        <p class="text-slate-300">"Finally reached my monetization goal thanks to Mr.Arslan Boosting. Great service!"</p>
+        <div class="flex mt-4">
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star text-yellow-400"></i>
+          <i class="fas fa-star-half-alt text-yellow-400"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h3 class="text-3xl font-bold mb-4">Frequently Asked Questions</h3>
+      <p class="text-slate-400 max-w-2xl mx-auto">Find answers to common questions about our services</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="glass-card rounded-3xl p-6" data-aos="fade-up">
+        <h4 class="font-semibold text-lg mb-2">How long does it take to see results?</h4>
+        <p class="text-slate-300">Most services start delivering within a few hours, with full completion within 24-72 hours depending on the service.</p>
+      </div>
+      
+      <div class="glass-card rounded-3xl p-6" data-aos="fade-up" data-aos-delay="100">
+        <h4 class="font-semibold text-lg mb-2">Are your services safe?</h4>
+        <p class="text-slate-300">Yes, we use safe and reliable methods that won't put your accounts at risk of being banned.</p>
+      </div>
+      
+      <div class="glass-card rounded-3xl p-6" data-aos="fade-up" data-aos-delay="200">
+        <h4 class="font-semibold text-lg mb-2">What payment methods do you accept?</h4>
+        <p class="text-slate-300">We accept JazzCash, EasyPaisa, bank transfer, and cryptocurrency.</p>
+      </div>
+      
+      <div class="glass-card rounded-3xl p-6" data-aos="fade-up" data-aos-delay="300">
+        <h4 class="font-semibold text-lg mb-2">Do you offer refunds?</h4>
+        <p class="text-slate-300">We offer refunds if we're unable to deliver the service as promised. Please contact us for details.</p>
+      </div>
+    </div>
+   </section>
+
+  <!-- Platform Modal -->
+  <div id="modal" class="hidden fixed inset-0 z-50 modal-backdrop">
+    <div class="min-h-full w-full flex items-end sm:items-center justify-center p-3">
+      <div class="glass-card rounded-3xl w-full max-w-2xl p-6" data-aos="zoom-in">
+        <div class="flex items-start justify-between gap-4 mb-6">
+          <div>
+            <h4 id="modalTitle" class="text-2xl font-bold">Platform</h4>
+            <p id="modalSubtitle" class="text-slate-300">Choose a service below.</p>
+          </div>
+          <button onclick="closeModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 transition-colors">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div id="servicesList" class="grid gap-4"></div>
       </div>
     </div>
   </div>
-</div>
 
-  </section>  <!-- Platform Drawer / Modal -->  <div id="modal" class="hidden fixed inset-0 modal-backdrop z-50">
-    <div class="min-h-full w-full flex items-end sm:items-center justify-center p-3">
-      <div class="card bg-slate-900/70 rounded-3xl w-full max-w-2xl p-5 fade-enter">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <h4 id="modalTitle" class="text-xl font-bold">Platform</h4>
-            <p id="modalSubtitle" class="text-slate-300 text-sm">Choose a service below.</p>
-          </div>
-          <button onclick="closeModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20">✕</button>
-        </div>
-        <div id="servicesList" class="mt-4 grid gap-3"></div>
-      </div>
-    </div>
-  </div>  <!-- Contact Overlay (for ETC and header Contact) -->  <div id="contact" class="hidden fixed inset-0 z-50 modal-backdrop">
+  <!-- Contact Modal -->
+  <div id="contact" class="hidden fixed inset-0 z-50 modal-backdrop">
     <div class="min-h-full w-full flex items-center justify-center p-4">
-      <div class="card bg-slate-900/70 rounded-3xl max-w-lg w-full p-6 fade-enter text-center">
-        <div class="text-6xl">💬</div>
-        <h4 class="text-2xl font-bold mt-2">Contact Now</h4>
-        <p class="text-slate-300 mt-1">Tap the button below to start a WhatsApp chat instantly.</p>
-        <a href="https://wa.link/e6eour" target="_blank" rel="noopener" class="mt-4 inline-block px-6 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 font-semibold">Open WhatsApp</a>
-        <button onclick="closeContact()" class="mt-3 block w-full px-6 py-3 rounded-2xl bg-white/10 hover:bg-white/20">Close</button>
+      <div class="glass-card rounded-3xl max-w-md w-full p-6 text-center" data-aos="zoom-in">
+        <div class="text-6xl mb-4">💬</div>
+        <h4 class="text-2xl font-bold mb-2">Contact Now</h4>
+        <p class="text-slate-300 mb-6">Tap the button below to start a WhatsApp chat instantly.</p>
+        <a href="https://wa.link/e6eour" target="_blank" rel="noopener" class="btn-primary inline-block px-6 py-3.5 rounded-xl font-semibold mb-3">
+          <i class="fab fa-whatsapp mr-2"></i>Open WhatsApp
+        </a>
+        <button onclick="closeContact()" class="btn-secondary w-full px-6 py-3.5 rounded-xl font-semibold">Close</button>
       </div>
     </div>
-  </div>  <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center text-slate-400 text-sm">
-    © <span id="year"></span> Mr.Arslan Boosting Service's — All rights reserved.
-  </footer>  <script>
-    const WHATSAPP_LINK = 'https://wa.link/e6eour'; // your provided link
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-20 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <div class="flex justify-center items-center gap-3 mb-6">
+          <div class="logo-circle w-10 h-10 rounded-2xl grid place-items-center bg-gradient-to-br from-blue-500 to-blue-700">
+            <span class="text-xl">🚀</span>
+          </div>
+          <h2 class="text-xl font-bold">Mr.Arslan Boosting Service's</h2>
+        </div>
+        
+        <p class="text-slate-400 max-w-2xl mx-auto mb-8">Professional social media boosting services to help you grow your online presence quickly and reliably.</p>
+        
+        <div class="flex justify-center gap-6 mb-8">
+          <a href="#" class="text-2xl text-slate-400 hover:text-blue-400 transition-colors"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="text-2xl text-slate-400 hover:text-pink-500 transition-colors"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-2xl text-slate-400 hover:text-blue-400 transition-colors"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-2xl text-slate-400 hover:text-green-400 transition-colors"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        
+        <p class="text-sm text-slate-500">© <span id="year"></span> Mr.Arslan Boosting Service's — All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize AOS animations
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+    });
+
+    const WHATSAPP_LINK = 'https://wa.link/e6eour';
 
     const platforms = [
       {
         key: 'tiktok',
-        icon: '<i class="fa-brands fa-tiktok"></i>',
+        icon: '<i class="fa-brands fa-tiktok text-rose-500"></i>',
         name: 'TikTok',
-        services: ['Likes', 'Followers', 'Views', 'UK Accounts']
+        services: ['Likes', 'Followers', 'Views', 'UK Accounts', 'Comments', 'Shares']
       },
       {
         key: 'instagram',
-        icon: '<i class="fa-brands fa-instagram"></i>',
+        icon: '<i class="fa-brands fa-instagram text-purple-500"></i>',
         name: 'Instagram',
-        services: ['Likes', 'Followers', 'Reels Views']
+        services: ['Likes', 'Followers', 'Reels Views', 'Story Views', 'Comments', 'IGTV Views']
       },
       {
         key: 'facebook',
-        icon: '<i class="fa-brands fa-facebook"></i>',
+        icon: '<i class="fa-brands fa-facebook text-blue-600"></i>',
         name: 'Facebook',
-        services: ['Likes', 'Followers', 'Video Views']
+        services: ['Likes', 'Followers', 'Video Views', 'Post Shares', 'Page Likes']
       },
       {
         key: 'youtube',
-        icon: '<i class="fa-brands fa-youtube"></i>',
+        icon: '<i class="fa-brands fa-youtube text-red-500"></i>',
         name: 'YouTube',
-        services: ['Subs', 'Views', 'Watch Time']
+        services: ['Subscribers', 'Views', 'Watch Time', 'Likes', 'Comments', 'Shares']
       },
       {
         key: 'snapchat',
-        icon: '<i class="fa-brands fa-snapchat"></i>',
+        icon: '<i class="fa-brands fa-snapchat text-yellow-400"></i>',
         name: 'Snapchat',
-        services: ['Followers', 'Story Views']
+        services: ['Followers', 'Snap Views']
       },
       {
         key: 'telegram',
-        icon: '<i class="fa-brands fa-telegram"></i>',
+        icon: '<i class="fa-brands fa-telegram text-blue-400"></i>',
         name: 'Telegram',
-        services: ['Members']
+        services: ['Channel Members', 'Post Views']
       },
       {
         key: 'whatsapp',
-        icon: '<i class="fa-brands fa-whatsapp"></i>',
+        icon: '<i class="fa-brands fa-whatsapp text-green-500"></i>',
         name: 'WhatsApp',
-        services: ['Channel Members', 'Reacts', 'Voting']
+        services: ['Channel Members', 'Reacts', 'Voting', 'Status Viewing bot']
       },
       {
-        key: 'fake numbes',
-        icon: '<i class="fa-solid fa-phone"></i>',
-        name: 'Fake Numbes',
-        services: ['All type of Fake Numbers', 'Cheap Numbers']
+        key: 'fake numbers',
+        icon: '<i class="fa-solid fa-phone text-cyan-400"></i>',
+        name: 'Fake Numbers',
+        services: ['All type of Fake Numbers', 'Cheap Numbers', 'OTP Numbers']
       },
       {
         key: 'canva pro',
-        icon: '🌐',
+        icon: '<i class="fa-solid fa-palette text-pink-500"></i>',
         name: 'Canva Pro',
         services: ['For 30 Days', 'For 1 year', 'For Life Time']
       },
       {
         key: 'capcut pro',
-        icon: '🎞️',
+        icon: '<i class="fa-solid fa-film text-blue-400"></i>',
         name: 'CapCut Pro',
-        services: ['For 30 days']
+        services: ['Subscription for 30 days', 'Apk']
       },
       {
         key: 'netflix screen',
-        icon: '<i class="fa-brands fa-netflix"></i>',
+        icon: '<i class="fa-brands fa-netflix text-red-500"></i>',
         name: 'Netflix Screen',
-        services: ['Private Screen', 'Private Screen With Download Button']
+        services: ['Private Screen', 'Private Screen With Download', '4K Ultra HD', 'Multiple Profiles']
       },
       {
-        key: 'sim information',
-        icon: '📜',
-        name: 'Sim information',
-        services: ['With Number', 'With CNIC']
+        key: 'sim info',
+        icon: '<i class="fa-solid fa-address-card text-amber-400"></i>',
+        name: 'Sim Information',
+        services: ['With Number', 'With CNIC', 'Family Details']
       },
     ];
 
@@ -198,13 +549,14 @@
     function renderPlatforms(){
       platforms.forEach(p => {
         const card = document.createElement('div');
-        card.className = 'card rounded-3xl p-5 hover:bg-white/10 transition cursor-pointer';
+        card.className = 'glass-card rounded-3xl p-5 hover:bg-white/5 transition-all cursor-pointer group';
+        card.setAttribute('data-aos', 'fade-up');
         card.innerHTML = `
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-2xl grid place-items-center bg-white/10 text-2xl">${p.icon}</div>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-2xl grid place-items-center bg-white/10 text-2xl group-hover:scale-110 transition-transform">${p.icon}</div>
             <div>
               <h4 class="font-semibold text-lg">${p.name}</h4>
-              <p class="text-slate-300 text-sm">Tap to view services</p>
+              <p class="text-slate-300 text-sm">${p.services.length} services available</p>
             </div>
           </div>`;
         card.addEventListener('click', () => openPlatform(p));
@@ -213,13 +565,14 @@
 
       // ETC tile that opens Contact page
       const etc = document.createElement('div');
-      etc.className = 'card rounded-3xl p-5 hover:bg-white/10 transition cursor-pointer';
+      etc.className = 'glass-card rounded-3xl p-5 hover:bg-white/5 transition-all cursor-pointer group';
+      etc.setAttribute('data-aos', 'fade-up');
       etc.innerHTML = `
-        <div class="flex items-center gap-3">
-          <div class="w-12 h-12 rounded-2xl grid place-items-center bg-white/10 text-2xl">⋯</div>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl grid place-items-center bg-gradient-to-br from-purple-500 to-pink-500 text-2xl group-hover:scale-110 transition-transform">⋯</div>
           <div>
-            <h4 class="font-semibold text-lg">Etc</h4>
-            <p class="text-slate-300 text-sm">More? Tap to Contact Now</p>
+            <h4 class="font-semibold text-lg">More Services</h4>
+            <p class="text-slate-300 text-sm">Contact for custom requests</p>
           </div>
         </div>`;
       etc.addEventListener('click', openContact);
@@ -231,45 +584,66 @@
       document.getElementById('modalSubtitle').textContent = 'Choose a service and then tap Buy Now';
       const list = document.getElementById('servicesList');
       list.innerHTML = '';
+      
       p.services.forEach(svc => {
         const row = document.createElement('div');
-        row.className = 'rounded-2xl bg-white/5 p-4 flex items-center justify-between';
+        row.className = 'rounded-2xl bg-white/5 p-5 flex items-center justify-between hover:bg-white/10 transition-colors';
         row.innerHTML = `
           <div>
             <div class="font-semibold">${svc}</div>
-            <div class="text-xs text-slate-400">${p.name} • ${svc}</div>
+            <div class="text-sm text-slate-400">${p.name} • ${svc}</div>
           </div>
           <div class="flex items-center gap-2">
-            <button class="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 font-semibold">Buy Now</button>
+            <button class="btn-primary px-4 py-2.5 rounded-xl font-semibold">Buy Now</button>
           </div>`;
         row.querySelector('button').addEventListener('click', () => buy(p.name, svc));
         list.appendChild(row);
       });
+      
       openModal();
     }
 
     function buy(platform, service){
-      // Prefer the exact wa.link provided. We'll also include a fallback text copy for clarity.
-      const msg = encodeURIComponent(`Hello, I want ${platform} ${service}`);
-      // Try opening wa.link (primary)
+      const msg = encodeURIComponent(`Hello, I'm interested in ${platform} ${service} package. Please provide details.`);
       window.open(`${WHATSAPP_LINK}?text=${msg}`, '_blank');
     }
 
     function openModal(){
       document.getElementById('modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     }
+    
     function closeModal(){
       document.getElementById('modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
     }
 
     function openContact(){
       document.getElementById('contact').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     }
+    
     function closeContact(){
       document.getElementById('contact').classList.add('hidden');
+      document.body.style.overflow = 'auto';
     }
 
+    function toggleMobileMenu(){
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Close modals when clicking outside
+    document.addEventListener('click', function(e) {
+      if (e.target.id === 'modal') closeModal();
+      if (e.target.id === 'contact') closeContact();
+    });
+
+    // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Initialize the platform grid
     renderPlatforms();
-  </script></body>
+  </script>
+</body>
 </html>
